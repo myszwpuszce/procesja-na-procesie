@@ -1,0 +1,24 @@
+---
+- hosts: jenkins
+  become: true
+  tasks:
+  - name: install the java pre-requisties
+    apt:
+      name: software-properties-common
+      state: latest
+  - name: add oracle java repository
+    apt_repository:
+         repo: 'ppa:webupd8team/java'
+  - name: update repository
+    apt:
+      update_cache: yes
+  - name: Accept Java 8 License
+    debconf:
+     name: 'oracle-java8-installer'
+     question: 'shared/accepted-oracle-license-v1-1'
+     value: 'true'
+     vtype: 'select'
+  - name: install java 8
+    apt:
+     name: openjdk-8-jdk
+     force: yes
