@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DATE=`date`
 cd /opt/test
-date > lastrun.txt
-#date > /opt/test/lastrun0.txt
+echo $DATE > lastrun.txt
+git commit -a -m "$DATE"
+
+
