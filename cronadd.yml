@@ -1,0 +1,11 @@
+---
+- hosts: jenkins
+  become: true
+  tasks:
+  - name: Creates a cron file under /etc/cron.d
+    cron:
+      name: "five minutes period"
+      minute: "*/5"
+      user: root
+      job: "/opt/test/5min.sh"
+      cron_file: period_5_min

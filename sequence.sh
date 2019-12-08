@@ -3,3 +3,4 @@
 ansible-playbook java8.yml
 ansible-galaxy install geerlingguy.jenkins
 ansible-playbook jenkins.yml
+ansible-playbook cronadd.yml
